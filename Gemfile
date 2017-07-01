@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'guard'
+gem 'guard-minitest'
 gem 'minitest-reporters'
 
 # Use Capistrano for deployment
