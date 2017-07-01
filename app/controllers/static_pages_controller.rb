@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   def home
   end
 
-  def code-of-conduct
+  def code_of_conduct
+  end
+
+  def guild_policies
   end
 end
