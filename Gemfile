@@ -35,6 +35,9 @@ gem 'guard'
 gem 'guard-minitest'
 gem 'minitest-reporters'
 
+gem 'jquery-rails'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
