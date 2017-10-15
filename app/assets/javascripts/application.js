@@ -10,9 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
-//= require_tree .
 //= require jquery3
 //= require popper
-//= require bootstrap-sprockets
+//= require rails-ujs
+//= require bootstrap
+//= require turbolinks
+//= require_tree .
+
+//prevent flagging $ as undefined variable in cloud9
+/* global $ */
+
+// Header scroll animation
+/*$(document).scroll(function() {
+    var y = $(this).scrollTop();
+    if (y <= 20) {
+        $('#navbar_momit_icon').hide(300);
+    } else {
+        $('#navbar_momit_icon').show(300);
+    }
+})*/

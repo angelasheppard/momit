@@ -35,8 +35,10 @@ gem 'guard'
 gem 'guard-minitest'
 gem 'minitest-reporters'
 
+gem 'popper_js', '~> 1.9.9'
 gem 'jquery-rails'
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+#gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag 'favicon.ico' %>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
   <body>
-    <%= yield %>
+      
+    <%= render partial: "layouts/header" %>
+
+    <div class="container">
+      
+      <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %>">
+          <%= value %>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
   </body>
 </html>

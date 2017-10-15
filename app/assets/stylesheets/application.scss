@@ -13,3 +13,45 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.container {
+    margin-top: 100px;
+}
+.navbar {
+    padding: 1rem 2rem;
+}
+.navbar li a {
+    color: #f7f7f7;
+    font-size: 1.1em;
+    line-height: 40px;
+}
+.navbar .dropdown-menu a {
+    color: #193A52;
+}
+.navbar .btn-group a {
+    -webkit-appearance: none;
+}
+.login-links a:first-child {
+    position:relative;
+}
+.login-links a:first-child:after {
+    border-right: 1px solid #f7f7f7;
+    height:50%;
+    content:'';
+    position:absolute;
+    top: 25%;
+    right: 0;
+}
+.momit_blue_bg {
+    //background-color: #01395e;
+    background-color: #193A52;
+}
+.momit_red_text {
+    color: #800d35;
+}
+.momit_neutral_fg {
+    color: #f7f7f7;
+}
+.momit_neutral_bg {
+    background-color: #f7f7f7;
+}
