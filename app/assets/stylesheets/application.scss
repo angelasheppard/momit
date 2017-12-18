@@ -31,16 +31,20 @@
 .navbar .btn-group a {
     -webkit-appearance: none;
 }
-.login-links a:first-child {
+.login-links a:first-of-type {
     position:relative;
 }
-.login-links a:first-child:after {
+.login-links a:first-of-type:after {
     border-right: 1px solid #f7f7f7;
     height:50%;
     content:'';
     position:absolute;
     top: 25%;
     right: 0;
+}
+.login-links span {
+    color: #88939e;
+    padding: 1rem;
 }
 .momit_blue_bg {
     //background-color: #01395e;

@@ -1,32 +1,35 @@
-<nav class="navbar navbar-default momit_blue_bg fixed-top">
+<!--<nav class="navbar navbar-default momit_blue_bg fixed-top">-->
+<nav class="navbar navbar-expand momit_blue_bg fixed-top">
     <!--<div class="momit_logo", id="header_momit_logo" >-->
-    <ul class="nav list-inline">
-        <li class="nav-item">
-            <%= link_to image_tag("/assets/logos/momit_full_logo_small.png", class: 'navbar-brand'), root_path %>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'Calendar', root_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'Forums', root_path, class: 'nav-link' %>
-        </li>
-        <li class="nav-item btn-group">
-            <%= link_to 'Resources', root_path, class: 'dropdown-toggle nav-link', id: 'dropdownMenu1', type: 'button', data: {toggle: 'dropdown'}, aria: {haspopup: "true", expanded: "false"} %>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <%= link_to 'Code of Conduct', code_of_conduct_path, class: 'dropdown-item' %>
-                <%= link_to 'Guild Policies', guild_policies_path, class: 'dropdown-item' %>
-                <%= link_to 'Warcraft Logs', 'https://www.warcraftlogs.com/guilds/111533/', class: 'dropdown-item' %>
-            </div>
-        </li>
+    <div class="collapse navbar-collapse">
+        <ul class="nav list-inline">
+            <li class="nav-item">
+                <%= link_to image_tag("/assets/logos/momit_full_logo_small.png", class: 'navbar-brand'), root_path %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Calendar', root_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Forums', root_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item btn-group">
+                <%= link_to 'Resources', root_path, class: 'dropdown-toggle nav-link', id: 'dropdownMenu1', type: 'button', data: {toggle: 'dropdown'}, aria: {haspopup: "true", expanded: "false"} %>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <%= link_to 'Code of Conduct', code_of_conduct_path, class: 'dropdown-item' %>
+                    <%= link_to 'Guild Policies', guild_policies_path, class: 'dropdown-item' %>
+                    <%= link_to 'Warcraft Logs', 'https://www.warcraftlogs.com/guilds/111533/', class: 'dropdown-item' %>
+                </div>
+            </li>
+        </ul>
         <li class="nav-item btn-group ml-auto login-links">
             <% if user_signed_in? %>
-                Logged in as <strong><%= current_user.username %></strong>.
-                <%= link_to 'Edit Profile', edit_user_registration_path %>
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                <span>Logged in as <strong><%= current_user.username %></strong>.</span>
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: 'nav-link' %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
             <% else %>
                 <%= link_to 'Login', new_user_session_path, class: 'nav-link' %>
                 <%= link_to 'Register', new_user_registration_path, class: 'nav-link' %>
             <% end %>
-        </div>
-    </ul>
+        </li>
+    </div>
 </nav>
