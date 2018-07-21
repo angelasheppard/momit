@@ -15,12 +15,15 @@
 @import "bootstrap";
 
 .container {
-    margin-top: 100px;
+    margin-top: 110px;
 }
 .navbar {
     padding: 1rem 2rem;
 }
-.navbar li a {
+.navbar-toggler {
+    background-color: #f7f7f7;
+}
+#navbarSupportedContent a.nav-link {
     color: #f7f7f7;
     font-size: 1.1em;
     line-height: 40px;
@@ -50,6 +53,15 @@
     //background-color: #01395e;
     background-color: #193A52;
 }
+.momit_red_bg {
+    background-color: #800d35;
+}
+.momit_red_btn {
+    background-color: #800d35;
+}
+.momit_red_btn:hover {
+    background-color: #5a0a26;
+}
 .momit_red_text {
     color: #800d35;
 }
@@ -58,4 +70,17 @@
 }
 .momit_neutral_bg {
     background-color: #f7f7f7;
+}
+.field {
+    margin-bottom: 15px;
+}
+.field label {
+    margin-bottom: 0.1rem;
+}
+.actions {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+h2 {
+    color: #800d35;
 }
