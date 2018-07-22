@@ -1,14 +1,12 @@
 class ApplicationController < ActionController::Base
-  before_action :configure_permitted_parameters, if: :devise_controller?
-  protect_from_forgery with: :exception
-  
-  def hello
-      render html: "default momit home page"
-  end
+    protect_from_forgery with: :exception
 
-  protected
+    before_action :authenticate_user!
+    before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email])
-  end
+    protected
+
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email])
+    end
 end
