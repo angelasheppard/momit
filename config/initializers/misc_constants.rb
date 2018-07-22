@@ -1,0 +1,2 @@
+SHORT_TIMESTAMP_FORMAT = "%-m/%-d/%y %H:%M"
+TIMESTAMP_FORMAT = "%m/%d/%Y %H:%M"
