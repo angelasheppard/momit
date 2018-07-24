@@ -38,7 +38,7 @@ Rails.application.configure do
     domain: 'momitguild.org',
     authentication: :plain,
     user_name: 'apikey',
-    password: "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"
+    password: "ENV['SENDGRID_API_KEY']"
   }
 
   # Print deprecation notices to the Rails logger.
