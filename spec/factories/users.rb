@@ -4,6 +4,7 @@ FactoryBot.define do
         sequence(:email) { |n| "tester#{n}@example.com" }
         password 'random_password'
         role 'guest'
+        confirmed_at Date.today
 
         trait :is_initiate do
             role 'initiate'
