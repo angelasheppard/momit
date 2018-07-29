@@ -86,3 +86,13 @@
 h2 {
     color: #800d35;
 }
+
+/* flash message css overrides */
+.alert > ul {
+    list-style-type: none;
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+.alert a.close {
+    line-height: 1rem;
+}
