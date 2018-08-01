@@ -21,5 +21,9 @@ FactoryBot.define do
         trait :without_role do
             role nil
         end
+
+        trait :unconfirmed do
+            confirmed_at nil
+        end
     end
 end
