@@ -1,15 +1,15 @@
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-horizontal' }) do |f| %>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="row mb-2">
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-6">
             <h2>Forgot Your Password?</h2>
         </div>
     </div>
 
     <div class="row mb-4">
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                 <%= f.email_field :email, placeholder: 'Email', autofocus: true, class: "form-control" %>
@@ -18,14 +18,14 @@
     </div>
 
     <div class="row mb-2">
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-6 ">
             <%= f.submit "Send password reset instructions", class: "btn text-white momit_red_btn" %>
         </div>
     </div>
 
     <div class="row mb-2">
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
         <div class="col-md-6 ">
             <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
                 <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
