@@ -30,4 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  pundit:
+    default: 'You are not authorized to perform this action.'
+    user_policy:
+      index?: 'You are not authorized to view users'
+      update?: 'You are not authorized to edit this user'
+      create?: 'You are not authorized to create users'
+      destroy?: 'You are not authorized to delete this user'
