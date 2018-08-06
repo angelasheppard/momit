@@ -14,4 +14,16 @@ class User < ApplicationRecord
         self.role ||= :guest
     end
 
+    def initiate?
+        return User.roles[self.role] >= User.roles[:initiate]
+    end
+
+    def member?
+        return User.roles[self.role] >= User.roles[:member]
+    end
+
+    def officer?
+        return User.roles[self.role] >= User.roles[:officer]
+    end
+
 end
