@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+gem 'pundit'
 
 gem 'popper_js', '~> 1.12.3'
 gem 'jquery-rails'
