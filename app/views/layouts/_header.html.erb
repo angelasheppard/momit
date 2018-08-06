@@ -20,6 +20,14 @@
             <%= link_to 'Warcraft Logs', WARCRAFT_LOGS_PATH, class: "dropdown-item #{active_link(WARCRAFT_LOGS_PATH)}" %>
         </div>
       </li>
+      <% if current_user&.officer? %>
+      <li class="nav-item dropdown">
+        <%= link_to 'Admin', '#', class: 'dropdown-toggle nav-link', id: 'navbarDropdownAdmin', data: {toggle: 'dropdown'}, aria: {haspopup: 'true', expanded: 'false'} %>
+        <div class="dropdown-menu momit_blue_bg momit_neutral_fg" aria-labelledby="navbarDropdownAdmin">
+          <%= link_to 'Manage Users', users_path, class: "dropdown-item #{active_link(users_path)}" %>
+        </div>
+      </li>
+      <% end %>
     </ul>
     <li class="nav-item btn-group ml-auto login-links">
         <% if user_signed_in? %>
