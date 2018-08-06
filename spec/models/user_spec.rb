@@ -49,7 +49,7 @@ RSpec.describe User, type: :model do
 
         it "is invalid with duplicate usernames" do
             user1 = FactoryBot.create(:user)
-            user2 = FactoryBot.build(:user)
+            user2 = FactoryBot.build(:user, username: user1.username)
             user2.valid?
             expect(user2.errors[:username]).to include('has already been taken')
         end

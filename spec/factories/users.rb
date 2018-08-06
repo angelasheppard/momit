@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :user do
-        username 'HanSolo'
+        sequence(:username) { |n| "HanSolo#{n}" }
         sequence(:email) { |n| "tester#{n}@example.com" }
         password 'random_password'
         role 'guest'
@@ -12,6 +12,10 @@ FactoryBot.define do
 
         trait :is_member do
             role 'member'
+        end
+
+        trait :is_officer do
+            role 'officer'
         end
 
         trait :is_admin do
