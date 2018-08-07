@@ -24,4 +24,4 @@
 
 /lib/tasks/cloud9_startup.rb
 
-/config/secrets.yml
+config/secrets.yml
