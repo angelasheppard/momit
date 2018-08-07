@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pundit'
 
+gem 'lograge'
+gem 'logstash-event'
+
 gem 'popper_js', '~> 1.12.3'
 gem 'jquery-rails'
 #gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
