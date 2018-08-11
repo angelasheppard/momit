@@ -15,5 +15,9 @@ Rails.application.routes.draw do
       sign_out: 'logout'
     }
 
+  scope "/admin" do
+    resources :users
+  end
+
   root 'static_pages#home'
 end
