@@ -19,6 +19,10 @@
                 <td><%= user.sign_in_count %></td>
                 <td><%= user.last_sign_in_at&.strftime(TIMESTAMP_FORMAT) %></td>
                 <td><%= user.created_at.strftime(TIMESTAMP_FORMAT) %></td>
+                <% if policy(user).edit? %>
+                    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+                    <td><%= link_to 'Destroy', user_path(user), method: :delete, data: {confirm: 'Destroy this user? This cannot be undone.' } %></td>
+                <% end %>
             </tr>
             <% end %>
         </tbody>
