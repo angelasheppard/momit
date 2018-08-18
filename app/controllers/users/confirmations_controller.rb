@@ -6,10 +6,11 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     #    super
     #end
 
-    ## POST /resource/confirmation
-    #def create
-    #    super
-    #end
+    # POST /resource/confirmation
+    def create
+        super
+        Log.info(current_user, "Completed account confirmation")
+    end
 
     ## GET /resource/confirmation?confirmation_token=abcdef
     #def show

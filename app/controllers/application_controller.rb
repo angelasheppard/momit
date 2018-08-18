@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     def user_not_authorized(exception)
         policy_name = exception.policy.class.to_s.underscore
 
+        Log.warn(current_user, "Unauthorized access attempted: #{policy_name}.#{exception_query}")
         flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
         redirect_to(request.referrer || root_path)
     end
@@ -20,5 +21,16 @@ class ApplicationController < ActionController::Base
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email])
+    end
+
+    def after_sign_in_path_for(resource)
+        #sign_in_url = new_user_session_url
+        #if request.referer == sign_in_url
+        #    super
+        #else
+        #    stored_location_for(resource) || request.referer || root_path
+        #end
+        Log.info(current_user, "Logged in")
+        root_path
     end
 end

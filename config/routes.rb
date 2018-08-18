@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     controllers: {
       confirmations: 'users/confirmations',
       registrations: 'users/registrations',
+      sessions: 'users/sessions',
+      passwords: 'users/passwords',
     },
     path_names: {
       sign_in: 'login',
