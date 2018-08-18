@@ -7,6 +7,17 @@ class ApplicationController < ActionController::Base
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+    #appends extra info to production log
+    def append_info_to_payload(payload)
+        super
+        payload[:http_host] = request.host
+        payload[:port] = request.port
+        payload[:remote_ip] = request.remote_ip
+        payload[:user_agent] = request.user_agent
+        payload[:auth_user] = current_user ? current_user.id : nil
+        payload[:referer] = request.env["HTTP_REFERER"] || '-'
+    end
+
     private
 
     def user_not_authorized(exception)
@@ -24,12 +35,6 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_in_path_for(resource)
-        #sign_in_url = new_user_session_url
-        #if request.referer == sign_in_url
-        #    super
-        #else
-        #    stored_location_for(resource) || request.referer || root_path
-        #end
         Log.info(current_user, "Logged in")
         root_path
     end
