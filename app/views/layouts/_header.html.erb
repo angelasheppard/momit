@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light momit_blue_bg fixed-top">
-    <%= link_to image_tag("/assets/logos/momit_full_logo_small.png", class: 'navbar-brand'), root_path %>
+    <%= link_to image_tag("/assets/logos/momit_full_logo_small.png", class: 'navbar-brand d-none d-md-inline-block'), root_path %>
+    <%= link_to image_tag("/assets/logos/momit_full_logo_mobile.png", class: 'navbar-brand d-sm-inline-block d-md-none'), root_path %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,17 +32,16 @@
     </ul>
     <li class="nav-item btn-group ml-auto login-links">
         <% if user_signed_in? %>
-            <span>Logged in as <strong><%= current_user.username %></strong>.</span>
-            <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link #{active_link(edit_user_registration_path)}" %>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            <%= link_to "Logged in as <span id='logged_in_username'>#{current_user.username}</span>".html_safe, '#', class: 'dropdown-toggle nav-link',
+                  id: 'navbarDropdownUser', data: {toggle: 'dropdown'}, aria: {haspopup: 'true', expanded: 'false'} %>
+            <div class="dropdown-menu momit_blue_bg momit_neutral_fg" id="login_dropdown" aria-labelledby="navbarDropdownUser">
+              <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item #{active_link(edit_user_registration_path)}" %>
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
         <% else %>
-            <%= link_to 'Login', new_user_session_path, class: "nav-link #{active_link(new_user_session_path)}" %>
+            <%= link_to 'Login', new_user_session_path, class: "nav-link #{active_link(new_user_session_path)}", id: 'login_link' %>
             <%= link_to 'Register', new_user_registration_path, class: "nav-link #{active_link(new_user_registration_path)}" %>
         <% end %>
     </li>
-    <!--<form class="form-inline my-2 my-lg-0">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>-->
   </div>
 </nav>

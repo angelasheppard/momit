@@ -16,6 +16,13 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+}
+
 /* global color variables */
 $momit_white: #f7f7f7 !global;
 $momit_blue: #193A52 !global;
@@ -23,7 +30,12 @@ $momit_red: #800d35 !global;
 $momit_dark_red: #5a0a26 !global;
 
 .container {
-    margin-top: 110px;
+    margin-top: 92px;
+}
+@media (max-width: 320px) {
+    .container {
+        margin-top: 82px;
+    }
 }
 .navbar {
     padding: 1rem 2rem;
@@ -41,13 +53,22 @@ $momit_dark_red: #5a0a26 !global;
 .navbar-toggler {
     background-color: $momit_white;
 }
+.dropdown-toggle {
+    white-space: nowrap;
+}
 #navbarSupportedContent a.nav-link {
     color: $momit_white;
     font-size: 1.2em;
     line-height: 40px;
 }
 .login-links {
-    a:first-of-type {
+    #logged_in_username {
+        text-shadow: 1px 0px 0px $momit_white;
+    }
+    a.nav-link {
+        font-size: 1em !important;
+    }
+    #login_link {
         position:relative;
         &:after {
             border-right: 1px solid #f7f7f7;
@@ -58,9 +79,9 @@ $momit_dark_red: #5a0a26 !global;
             right: 0;
         }
     }
-    span {
-        color: #88939e;
-        padding: 1rem;
+    #login_dropdown {
+        left: auto;
+        right: 0;
     }
 }
 .momit_blue_bg {
@@ -97,14 +118,18 @@ $momit_dark_red: #5a0a26 !global;
 }
 h1, h2 {
     color: $momit_red;
+    padding-top: 15px;
 }
 
 /* flash message css overrides */
-.alert > ul {
-    list-style-type: none;
-    margin-bottom: 0px;
-    padding-left: 10px;
-}
-.alert a.close {
-    line-height: 1rem;
+.alert {
+    padding-top: 15px;
+    > ul {
+        list-style-type: none;
+        margin-bottom: 0px;
+        padding-left: 10px;
+    }
+    a.close {
+        line-height: 1rem;
+    }
 }
