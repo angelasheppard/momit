@@ -10,11 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "colors";
 
 html, body {
   height: 100%;
@@ -22,12 +21,6 @@ html, body {
 body {
   display: flex;
 }
-
-/* global color variables */
-$momit_white: #f7f7f7 !global;
-$momit_blue: #193A52 !global;
-$momit_red: #800d35 !global;
-$momit_dark_red: #5a0a26 !global;
 
 .container {
     margin-top: 92px;
