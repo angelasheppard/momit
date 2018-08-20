@@ -21,5 +21,8 @@ module Momit
         helper_specs: false,
         routing_specs: false
     end
+
+    # Tell Rails to use our routes for error handling, not default static pages in public/
+    config.exceptions_app = self.routes
   end
 end

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  match "/404", to: "errors#not_found", via: :all
+  match "/500", to: "errors#internal_server_error", via: :all
+
   get 'static_pages/home'
   match '/code-of-conduct', to: 'static_pages#code_of_conduct', via: [:get]
   match '/guild-policies', to: 'static_pages#guild_policies', via: [:get]
