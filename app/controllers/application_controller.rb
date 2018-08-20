@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
     before_action :authenticate_user!
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :prepare_exception_notifier
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -26,6 +27,12 @@ class ApplicationController < ActionController::Base
         Log.warn(current_user, "Unauthorized access attempted: #{policy_name}.#{exception_query}")
         flash[:error] = t "#{policy_name}.#{exception.query}", scope: "pundit", default: :default
         redirect_to(request.referrer || root_path)
+    end
+
+    def prepare_exception_notifier
+        request.env["exception_notifier.exception_data"] = {
+            current_user: current_user&.username
+        }
     end
 
     protected

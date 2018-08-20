@@ -106,4 +106,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # ExceptionNotification config
+  config.middleware.use ExceptionNotification::Rack,
+    email: {
+      email_prefix: "[ERROR] ",
+      sender_address: %{"MOMiT Notifier" <noreply@momitguild.org>},
+      exception_recipients: Rails.application.secrets.error_email_recipients,
+      verbose_subject: false
+    }
 end
