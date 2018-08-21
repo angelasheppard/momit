@@ -42,6 +42,7 @@ gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0'
 
 gem 'exception_notification'
+gem 'slack-notifier'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
