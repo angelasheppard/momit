@@ -1,11 +1,14 @@
 class NotificationMailer < ActionMailer::Base
-    default from: "noreply@momitguild.org"
-    default to: NOTIFICATION_EMAIL_TO
+   
     if Rails.env == 'production'
+        NOTIFICATION_EMAIL_TO = User.admins.pluck(:email)
         @@app_name = "MOMiT"
     else
+        NOTIFICATION_EMAIL_TO = User.admins.first.email
         @@app_name = "#{Rails.env} MOMiT"
     end
+    default from: "noreply@momitguild.org"
+    default to: NOTIFICATION_EMAIL_TO
 
     def error_email(user, message, diffs, recipient=nil)
         subject = "Error on #{@@app_name}"

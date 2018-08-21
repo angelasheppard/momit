@@ -9,7 +9,7 @@ class User < ApplicationRecord
     validates :role, presence: true
 
     scope :ordered_by_username, -> { order('username ASC') }
-    #scope :admins, -> { where(role: 'admin') }
+    scope :admins, -> { where(role: 'admin') }
 
     def set_default_role
         self.role ||= :guest
