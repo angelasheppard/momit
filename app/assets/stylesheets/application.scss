@@ -13,74 +13,117 @@
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+@import "colors";
+@import "errors";
+
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+}
 
 .container {
-    margin-top: 110px;
+    margin-top: 92px;
+}
+@media (max-width: 320px) {
+    .container {
+        margin-top: 82px;
+    }
 }
 .navbar {
     padding: 1rem 2rem;
+    .btn-group a {
+        -webkit-appearance: none;
+    }
+    .nav-item a {
+        background-color: $momit_blue;
+        color: $momit-white;
+        &.active, &:hover {
+            text-shadow: 1px 0px 0px $momit_white;
+        }
+    }
 }
 .navbar-toggler {
-    background-color: #f7f7f7;
+    background-color: $momit_white;
+}
+.dropdown-toggle {
+    white-space: nowrap;
 }
 #navbarSupportedContent a.nav-link {
-    color: #f7f7f7;
-    font-size: 1.1em;
+    color: $momit_white;
+    font-size: 1.2em;
     line-height: 40px;
 }
-.navbar .dropdown-menu a {
-    color: #193A52;
-}
-.navbar .btn-group a {
-    -webkit-appearance: none;
-}
-.login-links a:first-of-type {
-    position:relative;
-}
-.login-links a:first-of-type:after {
-    border-right: 1px solid #f7f7f7;
-    height:50%;
-    content:'';
-    position:absolute;
-    top: 25%;
-    right: 0;
-}
-.login-links span {
-    color: #88939e;
-    padding: 1rem;
+.login-links {
+    #logged_in_username {
+        text-shadow: 1px 0px 0px $momit_white;
+    }
+    a.nav-link {
+        font-size: 1em !important;
+    }
+    #login_link {
+        position:relative;
+        &:after {
+            border-right: 1px solid #f7f7f7;
+            height:50%;
+            content:'';
+            position:absolute;
+            top: 25%;
+            right: 0;
+        }
+    }
+    #login_dropdown {
+        left: auto;
+        right: 0;
+    }
 }
 .momit_blue_bg {
-    //background-color: #01395e;
-    background-color: #193A52;
+    background-color: $momit_blue;
 }
 .momit_red_bg {
-    background-color: #800d35;
+    background-color: $momit_red;
 }
 .momit_red_btn {
-    background-color: #800d35;
+    background-color: $momit_red;
 }
 .momit_red_btn:hover {
-    background-color: #5a0a26;
+    background-color: $momit_dark_red;
 }
 .momit_red_text {
-    color: #800d35;
+    color: $momit_red;
 }
 .momit_neutral_fg {
-    color: #f7f7f7;
+    color: $momit_white;
 }
 .momit_neutral_bg {
-    background-color: #f7f7f7;
+    background-color: $momit_white;
 }
 .field {
     margin-bottom: 15px;
-}
-.field label {
-    margin-bottom: 0.1rem;
+
+    label {
+        margin-bottom: 0.1rem;
+    }
 }
 .actions {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-h2 {
-    color: #800d35;
+h1, h2 {
+    color: $momit_red;
+    padding-top: 15px;
+}
+
+/* flash message css overrides */
+.alert {
+    padding-top: 15px;
+    > ul {
+        list-style-type: none;
+        margin-bottom: 0px;
+        padding-left: 10px;
+    }
+    a.close {
+        line-height: 1rem;
+    }
 }

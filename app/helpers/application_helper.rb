@@ -17,4 +17,8 @@ module ApplicationHelper
             when :alert then "alert alert-warning"
         end
     end
+
+    def active_link(path)
+        current_page?(path) ? 'active' : ''
+    end
 end

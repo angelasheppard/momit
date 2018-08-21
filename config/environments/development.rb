@@ -28,19 +28,18 @@ Rails.application.configure do
 
   # Send email in dev
   #config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.perform_deliveries = true
-  #config.action_mailer.raise_delivery_errors = true
   #config.action_mailer.perform_caching = false
-  #config.action_mailer.default_url_options = { host: 'localhost', port: ENV['PORT'] }
-  #config.action_mailer.smtp_settings = {
-  #  user_name:            ENV['SENDEMAIL_USERNAME'],
-  #  password:             ENV['SENDEMAIL_PASSWORD'],
-  #  domain:               ENV['HOST_MAIL'],
-  #  address:              'smtp.gmail.com',
-  #  port:                 587,
-  #  authentication:       :plain,
-  #  enable_starttls_auto: true
-  #}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { host: "momit-pakkpekatt.c9users.io", port: ENV['PORT'] }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 2525,
+    domain: 'momitguild.org',
+    authentication: :plain,
+    user_name: 'apikey',
+    password: "#{ENV['SENDGRID_API_KEY']}"
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -62,4 +61,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Whitelist localhost IP for better_errors gem use on Cloud9
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 end

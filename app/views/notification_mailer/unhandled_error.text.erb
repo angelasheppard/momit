@@ -1,0 +1,42 @@
+An unhandled error has occured on the MOMiT site:
+
+
+===================Exception Message===============
+<%= raw @exception.message.inspect %>
+
+
+==================Exception Backtrace==============
+<%= raw @exception.backtrace.join("\n") %>
+
+
+=======================Params:=====================
+<%= raw @params.collect{|key,value| "#{key}: #{value}"}.join("\n") %>
+
+
+======================Request======================
+SERVER_NAME: <%= @request['SERVER_NAME'] %>
+REQUEST_METHOD: <%= @request['REQUEST_METHOD'] %>
+REQUEST_PATH: <%= @request['REQUEST_PATH'] %>
+REQUEST_URI: <%= @request['REQUEST_URI'] %>
+HTTP_VERSION: <%= @request['HTTP_VERSION'] %>
+HTTP_HOST: <%= @request['HTTP_HOST'] %>
+SERVER_PORT: <%= @request['SERVER_PORT'] %>
+QUERY_STRING: <%= @request['QUERY_STRING'] %>
+HTTP_USER_AGENT: <%= @request['HTTP_USER_AGENT'] %>
+REMOTE_ADDR: <%= @request['REMOTE_ADDR'] %>
+HTTP_REFERER: <%= @request['HTTP_REFERER'] %>
+
+
+======================Session========================
+<% @session.to_hash.each do |key,value| %>
+<% value = value.inspect unless value.is_a? String %>
+<%= raw "#{key}: #{value}"%>
+<% end %>
+
+
+======================Cookies========================
+<%= raw @cookies.collect{|key,value| "#{key}: #{value}"}.join("\n") %>
+
+
+
+=====================================================

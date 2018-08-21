@@ -1,0 +1,16 @@
+/* Errors controller Sass */
+
+.custom_errors_bg {
+    background: url(asset_path("backgrounds/error_bg.png"));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% top;
+    background-attachment: fixed;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    a:hover {
+        color: $momit_dark_red;
+    }
+}

@@ -1,10 +1,12 @@
 class StaticPagesController < ApplicationController
-  def home
-  end
+    skip_before_action :authenticate_user!, only: [:home]
 
-  def code_of_conduct
-  end
+    def home
+    end
 
-  def guild_policies
-  end
+    def code_of_conduct
+    end
+
+    def guild_policies
+    end
 end
