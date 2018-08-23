@@ -3,3 +3,7 @@ $momit_white: #f7f7f7 !global;
 $momit_blue: #193A52 !global;
 $momit_red: #800d35 !global;
 $momit_dark_red: #5a0a26 !global;
+
+/* thredded colors - must be included before @import thredded */
+$thredded-brand: $momit_red !global;
+$thredded-button-hover-background: $momit_dark_red !global;
