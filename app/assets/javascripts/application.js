@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//= require thredded
 
 //prevent flagging $ as undefined variable in cloud9
 /* global $ */
