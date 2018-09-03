@@ -27,4 +27,8 @@ class User < ApplicationRecord
         return User.roles[self.role] >= User.roles[:officer]
     end
 
+    def thredded_admin?
+        return self.role == 'admin'
+    end
+
 end

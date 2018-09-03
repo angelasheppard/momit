@@ -8,6 +8,12 @@ class UsersController < ApplicationController
         @users = User.ordered_by_username
     end
 
+    def show
+        authorize current_user
+        @user = User.find(params[:id])
+        @user_detail = @user.thredded_user_detail
+    end
+
     def edit
         authorize current_user
         @user = User.find(params[:id])

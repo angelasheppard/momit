@@ -109,10 +109,15 @@ Rails.application.configure do
 
   # ExceptionNotification config
   config.middleware.use ExceptionNotification::Rack,
+    ignore_crawlers: %w{Googlebot bingbot},
     email: {
       email_prefix: "[ERROR] ",
       sender_address: %{"MOMiT Notifier" <noreply@momitguild.org>},
       exception_recipients: Rails.application.secrets.error_email_recipients,
       verbose_subject: false
+    }
+    slack: {
+      webhook_url: Rails.application.secrets.slack_webhook_url,
+      channel: "#web-crew",
     }
 end

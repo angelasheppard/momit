@@ -15,6 +15,18 @@
 @import "bootstrap";
 @import "colors";
 @import "errors";
+@import "users";
+
+// thredded forum gem style //
+@import "thredded";
+.thredded--main-container {
+  // The padding and max-width are handled by the app's container.
+  max-width: none;
+  padding: 0;
+  @include thredded-media-tablet-and-up {
+    padding: 0;
+  }
+}
 
 html, body {
   height: 100%;
@@ -114,10 +126,13 @@ h1, h2 {
     color: $momit_red;
     padding-top: 15px;
 }
+h3, h4, h5, h6 {
+    color: $momit_red;
+}
 
 /* flash message css overrides */
 .alert {
-    padding-top: 15px;
+    margin-top: 15px;
     > ul {
         list-style-type: none;
         margin-bottom: 0px;
