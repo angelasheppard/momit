@@ -30,18 +30,20 @@
       </li>
       <% end %>
     </ul>
-    <li class="nav-item btn-group ml-auto login-links">
-        <% if user_signed_in? %>
-            <%= link_to "Logged in as <span id='logged_in_username'>#{current_user.username}</span>".html_safe, '#', class: 'dropdown-toggle nav-link',
-                  id: 'navbarDropdownUser', data: {toggle: 'dropdown'}, aria: {haspopup: 'true', expanded: 'false'} %>
-            <div class="dropdown-menu momit_blue_bg momit_neutral_fg" id="login_dropdown" aria-labelledby="navbarDropdownUser">
-              <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item #{active_link(edit_user_registration_path)}" %>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-            </div>
-        <% else %>
-            <%= link_to 'Login', new_user_session_path, class: "nav-link #{active_link(new_user_session_path)}", id: 'login_link' %>
-            <%= link_to 'Register', new_user_registration_path, class: "nav-link #{active_link(new_user_registration_path)}" %>
-        <% end %>
-    </li>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item btn-group login-links">
+          <% if user_signed_in? %>
+              <%= link_to "Logged in as <span id='logged_in_username'>#{current_user.username}</span>".html_safe, '#', class: 'dropdown-toggle nav-link',
+                    id: 'navbarDropdownUser', data: {toggle: 'dropdown'}, aria: {haspopup: 'true', expanded: 'false'} %>
+              <div class="dropdown-menu momit_blue_bg momit_neutral_fg" id="login_dropdown" aria-labelledby="navbarDropdownUser">
+                <%= link_to 'Edit Profile', edit_user_registration_path, class: "dropdown-item #{active_link(edit_user_registration_path)}" %>
+                <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+              </div>
+          <% else %>
+              <%= link_to 'Login', new_user_session_path, class: "nav-link #{active_link(new_user_session_path)}", id: 'login_link' %>
+              <%= link_to 'Register', new_user_registration_path, class: "nav-link #{active_link(new_user_registration_path)}" %>
+          <% end %>
+      </li>
+    </ul>
   </div>
 </nav>
