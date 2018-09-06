@@ -1,0 +1,163 @@
+<% provide(:title, @title) %>
+<h2 class="mb-3"><%= @title %></h2>
+<div id="loot_system">
+    <div>
+        <h4>The Rationale</h4>
+        <p>Over three years ago now, as MOMiT and Warcraft began making the transition from
+           "vanilla" WoW to The Burning Crusade, we knew we had to identify a loot sytem that
+           would be appropriate for this new style of raiding. Our primary considerations were
+           two-fold. We wanted a loot system that suited our inclusive but focused raid style,
+           and one that had a relatively light administrative component. We believed the system
+           should have some means of giving preference to the guild as a whole, and allow gear
+           to be distributed somewhat evenly throughout the raid.  This way we would all gear up
+           and grow together.  We chose a system that we thought would be balance our casual-friendly
+           mission, while not hindering the guild's progress through raid content.
+        </p>
+        <p>Our system of choice was (and still is) a lightly modified version of the
+           Suicide Kings (SK) system.
+        </p>
+        <p>There were two big points we needed to make right off the bat:</p>
+        <ol>
+            <li>The loot system does not supercede our
+                <%= link_to 'Loot Courtesies', guild_policies_path(anchor: 'loot_policies') %>
+                system. Unofficial raids will still use those guidelines, and that spirit
+                should inform loot decisions in the SK system. The two approaches are complementary.
+            </li>
+            <li>Most of our decisions have been made with guild progression in mind, rather
+                than personal advancement.
+            </li>
+        </ol>
+        <p>For more a more extensive discussion on the rationale behind our decision, please
+           see our <%= link_to 'Loot Philosophy', loot_philosophy_path %>.</p>
+    </div>
+    <div>
+        <h4>The SK System</h4>
+        <dl>
+            <dt>How it Works</dt>
+            <dd>To quickly summarize the SK system, it is a list of names. When a piece of loot
+                drops,the person who is highest on the list that wants the item gets it, and then
+                moves to the bottom of the list. Simple. Here's the twist: your position only changes
+                relative to the other raiders who are present on that run. So, for the person who
+                takes loot, they can rest happily knowing that they're not suddenly behind everyone
+                in the guild, and the person who misses a few runs can be happy because he doesn't
+                lose his place in line.
+            </dd>
+            <dd>Example! Here is a list. People whose names are in italics are NOT present on this raid.
+                <ol>
+                    <li>Gandalf</li>
+                    <li>Frodo</li>
+                    <li>Sam</li>
+                    <li class="font-italic">Merry</li>
+                    <li>Pippin</li>
+                    <li>Boromir</li>
+                    <li class="font-italic">Legolas</li>
+                </ol>
+            </dd>
+            <dd>Now, say that a dagger of orc-slaying drops and Frodo, Sam, and Pippin all want it.
+                Frodo gets it (Gandalf didn't want it) and moves to the bottom of the list, BUT ONLY
+                INCLUDING PRESENT RAIDERS. New list:
+                <ol>
+                    <li>Gandalf</li>
+                    <li>Sam</li>
+                    <li>Pippin</li>
+                    <li class="font-italic">Merry</li>
+                    <li>Boromir</li>
+                    <li>Frodo</li>
+                    <li class="font-italic">Legolas</li>
+                </ol>
+            </dd>
+            <dd>You'll note that Legolas is still last (he hasn't earned anything by not being here!)
+                and that Merry has maintained his spot as #4 in line. Pippin DID happen to pass
+                Merry since Pippin showed up. Gandalf is safe at the top of the list until his
+                Staff of Pwnage drops.
+            </dd>
+
+            <dt>MOMiT Modifications</dt>
+            <dd>So we've seen the "base SK" system. We have placed several modifications on
+                top of it to make it feel more MOMiTy.
+            </dd>
+            <dd>List Administration:
+                <ul>
+                    <li>We will always maintain at least two lists. Lists will be divided by
+                        Tier of content, and we'll have one general list and one for tier tokens.
+                        For example, there will be one SSC/TK list and one Tier 5 list. And so on.
+                        This way, you don't need to sacrifice your chance at Tier gear to get other stuff.
+                    </li>
+                    <li>You will be placed to the very end of the line if you don't raid for one
+                        month without prior clearance. Note: being at the end of the line hardly
+                        means you will get no loot - in fact, quite a bit will probably drop
+                        to you there once we get some experience.
+                    </li>
+                    <li>New lists will be "open" for the first week of a new tier, meaning everyone
+                        raiding for that week will be randomly inserted into the list. This includes
+                        people who are present but on standby for a particular raid. Exceptions can
+                        be made in the event of a long-standing commitment that week: members are
+                        encouraged to discuss these situations with Anaea.
+                    </li>
+                    <li>Non-progression instances are NOT included in these policies. We will
+                        continue using /roll and discussion to distribute loot in these raids.
+                    </li>
+                </ul>
+            </dd>
+            <dd>Item Administration:
+                <ul>
+                    <li>Any gear that is not claimed by a primary spec will be awarded FOR FREE
+                        to an off-spec, usually via /roll. We made this decision to help encourage
+                        flexibility in our raid members. Note that the Loot Courtesies are in play
+                        here- if someone would like an offset piece for his or her second spec,
+                        that should get priority over the person who wants it for a third spec
+                        s/he might maybe one day try out.
+                    </li>
+                    <li>If a BoE item drops, someone must suicide for it, or it will be put into
+                        the guild bank and eventually sold.
+                    </li>
+                    <li>Disenchant products will be sent to the bank.</li>
+                    <li>Resistance gear will not cost anything and will be divided by loot council.
+                        On resistance fights, it's important that one reliable raider be geared up quickly.
+                    </li>
+                </ul>
+            </dd>
+            <dd>Crafting Administration:
+                <ul>
+                    <li>Crafting patterns for BoE items will be loot counciled with a possible /roll
+                        involved. We want these in the hands of people who are reliable and will
+                        use them to craft things for the guild. There will be no cost for these.
+                    </li>
+                    <li>Crafting patterns for BoP items will be rolled for. As the materials cost
+                        for these are often quite extensive, we don't feel it's fair to require
+                        an SK slot for these items.
+                    </li>
+                    <li>High end crafting materials, like Runed Orbs, will be sent to the bank
+                        for eventual distribution.
+                    </li>
+                </ul>
+            </dd>
+            <dd>To elaborate on the one month decay, we felt that this rule had to be enacted
+                for the sake of guild progression. It seemed unbalanced to have a situation
+                where someone could walk into an instance his or her guildies have been learning
+                for months, and have priority over the people who've worked so hard to get
+                there. Because that person, as he or she contributes to the group, will
+                quickly move up in the list, we felt the decay was a good compromise.
+            </dd>
+            <dt>How to See the List</dt>
+            <dd>We do not currently have a method for posting the list online, but if you would
+                like to view it in-game you can download the KSK addon. Ask an admin for
+                a list broadcast.
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <h4>Special Cases: Exceptions to the Loot System</h4>
+        <p>Every now and then Blizzard gives us an item or class of item that doesn't really
+           work within the our loot system. In those instances, we'll draft and post a
+           separate policy governing how this particular loot will be handled. MOMiTs should
+           be able to access these through our forums. Current and previous exceptions include:
+        </p>
+        <ul>
+            <li><a href="https://www.wowhead.com/item=49908/primordial-saronite">Primordial Saronite</a></li>
+            <li><a href="https://www.wowhead.com/item=45039/shattered-fragments-of-valanyr">Val'anyr</a></li>
+            <li><a href="https://www.wowhead.com/item=45087/runed-orb">Runed Orbs</a></li>
+            <li><a href="https://www.wowhead.com/item=44569/key-to-the-focusing-iris">Key To the Focusing Iris</a></li>
+        </ul>
+    </div>
+</div>
