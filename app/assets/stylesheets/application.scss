@@ -29,19 +29,22 @@
   }
 }
 
-html, body {
-  height: 100%;
-}
+//variables - scope: application.scss only
+$navbar_height: 92px;
+$navbar_height_mobile: 82px;
+
+// application-wide styling //
 body {
   display: flex;
 }
 
 .container {
-    margin-top: 92px;
+    margin-top: $navbar_height;
+    margin-bottom: 40px;
 }
 @media (max-width: 320px) {
     .container {
-        margin-top: 82px;
+        margin-top: $navbar_height_mobile;
     }
 }
 .navbar {
@@ -129,6 +132,22 @@ h1, h2 {
 }
 h3, h4, h5, h6 {
     color: $momit_red;
+}
+.fragment_id::before {
+    display: block;
+    content: " ";
+    margin-top: -($navbar_height);
+    height: $navbar_height;
+    visibility: hidden;
+}
+@media (max-width: 320px) {
+    .fragment_id::before {
+        display: block;
+        content: " ";
+        margin-top: -($navbar_height_mobile);
+        height: $navbar_height_mobile;
+        visibility: hidden;
+    }
 }
 
 /* flash message css overrides */
