@@ -31,4 +31,16 @@ class User < ApplicationRecord
         return self.role == 'admin'
     end
 
+    def thredded_can_read_messageboards
+        public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
+        return Thredded::Messageboard.by_messageboard_group(public_group) if self.guest?
+        return Thredded::Messageboard.all if self.initiate?
+    end
+
+    def thredded_can_write_messageboards
+        public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
+        return Thredded::Messageboard.by_messageboard_group(public_group) if self.guest?
+        return Thredded::Messageboard.all if self.initiate?
+    end
+
 end
