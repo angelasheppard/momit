@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   match '/code-of-conduct', to: 'static_pages#code_of_conduct', via: [:get]
   match '/guild-policies', to: 'static_pages#guild_policies', via: [:get]
+  match '/loot-philosophy', to: 'static_pages#loot_philosophy', via: [:get]
+  match '/loot-system', to: 'static_pages#loot_system', via: [:get]
 
 	match '/users', to: 'users#index', via: 'get'
 
