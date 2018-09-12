@@ -32,15 +32,36 @@ class User < ApplicationRecord
     end
 
     def thredded_can_read_messageboards
-        public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
-        return Thredded::Messageboard.by_messageboard_group(public_group) if self.guest?
-        return Thredded::Messageboard.all if self.initiate?
+        return get_permitted_messageboards
     end
 
     def thredded_can_write_messageboards
-        public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
-        return Thredded::Messageboard.by_messageboard_group(public_group) if self.guest?
-        return Thredded::Messageboard.all if self.initiate?
+        writable_boards = get_permitted_messageboards
+        if self.guest?
+            return writable_boards.select{|b| b.name == 'Recruitment'}
+        else
+            return writable_boards
+        end
     end
 
+    private
+
+        def get_permitted_messageboards
+            if self.officer?
+                return Thredded::Messageboard.all
+            else
+                member_restricted_boards = ['Officers']
+                initiate_restricted_boards = member_restricted_boards.push('Recruit Voting')
+
+                public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
+                public_boards = Thredded::Messageboard.by_messageboard_group(public_group)
+                momit_group = Thredded::MessageboardGroup.find_by(name: 'MOMiT')
+                momit_boards = Thredded::Messageboard.by_messageboard_group(momit_group)
+                all_boards = public_boards + momit_boards
+
+                return all_boards.reject{ |mb| member_restricted_boards.include?(mb.name) } if self.member?
+                return all_boards.reject{ |mb| initiate_restricted_boards.include?(mb.name) } if self.initiate?
+                return public_boards if self.guest?
+            end
+        end
 end
