@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'static_pages#home'
+
   mount Thredded::Engine => '/forum'
 
   match "/404", to: "errors#not_found", via: :all
@@ -28,6 +30,4 @@ Rails.application.routes.draw do
   scope "/admin" do
     resources :users
   end
-
-  root 'static_pages#home'
 end
