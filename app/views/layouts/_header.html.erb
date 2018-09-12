@@ -18,7 +18,7 @@
         <div class="dropdown-menu momit_blue_bg momit_neutral_fg" aria-labelledby="navbarDropdown">
             <%= link_to 'Code of Conduct', code_of_conduct_path, class: "dropdown-item #{active_link(code_of_conduct_path)}" %>
             <%= link_to 'Guild Policies', guild_policies_path, class: "dropdown-item #{active_link(guild_policies_path)}" %>
-            <%= link_to 'Warcraft Logs', WARCRAFT_LOGS_PATH, class: "dropdown-item #{active_link(WARCRAFT_LOGS_PATH)}" %>
+            <%= link_to 'Warcraft Logs', WARCRAFT_LOGS_PATH, class: "dropdown-item #{active_link(WARCRAFT_LOGS_PATH)}", target: :_blank %>
         </div>
       </li>
       <% if current_user&.officer? %>
