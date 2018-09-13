@@ -55,7 +55,7 @@ class User < ApplicationRecord
                 return Thredded::Messageboard.all
             else
                 member_restricted_boards = ['Officers']
-                initiate_restricted_boards = member_restricted_boards.push('Recruit Voting')
+                initiate_restricted_boards = member_restricted_boards.dup.push('Recruit Voting')
 
                 public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
                 public_boards = Thredded::Messageboard.by_messageboard_group(public_group)
