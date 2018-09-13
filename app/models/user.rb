@@ -44,6 +44,10 @@ class User < ApplicationRecord
         end
     end
 
+    def thredded_can_moderate_messageboards
+        return self.admin? ? Thredded::Messageboard.all : []
+    end
+
     private
 
         def get_permitted_messageboards
