@@ -75,7 +75,7 @@ Thredded.layout = 'layouts/application'
 
 # ==> Email Configuration
 # Email "From:" field will use the following
-Thredded.email_from = 'forum@momitguild.org'
+Thredded.email_from = 'MOMiT Forum <forum@momitguild.org>'
 
 # Emails going out will prefix the "Subject:" with the following string
 # Thredded.email_outgoing_prefix = '[My Forum] '
