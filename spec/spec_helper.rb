@@ -91,4 +91,9 @@ RSpec.configure do |config|
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
+
+  # Load data from seeds file
+  config.before(:suite) do
+    require "#{Rails.root}/db/seeds.rb"
+  end
 end
