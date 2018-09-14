@@ -378,7 +378,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   exception_notification
-  factory_bot_rails (~> 4.0)
+  factory_bot_rails
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails
