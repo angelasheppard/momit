@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.21.0'
 # Use Puma as the app server
@@ -16,8 +16,8 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+gem 'mini_racer'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -39,12 +39,14 @@ gem 'logstash-event'
 gem 'popper_js', '~> 1.12.3'
 gem 'jquery-rails'
 #gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.1.3'
 
 gem 'exception_notification'
 gem 'slack-notifier'
 
 gem 'thredded', '~> 0.15.4'
+
+gem 'bootsnap', require: false
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
