@@ -46,6 +46,8 @@ gem 'slack-notifier'
 
 gem 'thredded', '~> 0.15.4'
 
+gem 'simple_calendar', '~> 2.0'
+
 gem 'bootsnap', require: false
 
 # Use Capistrano for deployment
