@@ -64,4 +64,9 @@ Rails.application.configure do
 
   # Whitelist localhost IP for better_errors gem use on Cloud9
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+
+  # for Active Job Inline
+  Rails.application.config.active_job.queue_adapter = :inline
+  # for Active Job Async
+  #Rails.application.config.active_job.queue_adapter = :async
 end
