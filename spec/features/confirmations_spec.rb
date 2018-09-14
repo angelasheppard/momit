@@ -20,8 +20,8 @@ RSpec.feature "Confirmations", type: :feature do
             click_button "Resend confirmation instructions"
 
             expect(current_path).to eq new_user_session_path
-            expect(page).to have_content "You will receive an email with instructions
-                for how to confirm your email address in a few minutes."
+            expect(page).to have_content %{You will receive an email with instructions
+                for how to confirm your email address in a few minutes.}.squish
         end
 
         mail = ActionMailer::Base.deliveries.last

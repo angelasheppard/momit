@@ -4,7 +4,7 @@ class UserPolicy < ApplicationPolicy
     end
 
     def show?
-        @current_user.officer?
+        @current_user.member?
     end
 
     def create?

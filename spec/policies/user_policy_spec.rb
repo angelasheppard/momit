@@ -9,7 +9,7 @@ RSpec.describe UserPolicy do
 
     subject { described_class }
 
-    permissions :index?, :show? do
+    permissions :index? do
         it "permits access for officers" do
             expect(subject).to permit(officer)
             expect(subject).to permit(admin)
@@ -18,6 +18,18 @@ RSpec.describe UserPolicy do
             expect(subject).to_not permit(guest)
             expect(subject).to_not permit(initiate)
             expect(subject).to_not permit(member)
+        end
+    end
+
+    permissions :show? do
+        it "permits access for members" do
+            expect(subject).to permit(officer)
+            expect(subject).to permit(admin)
+            expect(subject).to permit(member)
+        end
+        it "denies access to guests and initiates" do
+            expect(subject).to_not permit(guest)
+            expect(subject).to_not permit(initiate)
         end
     end
 

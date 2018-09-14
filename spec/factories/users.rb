@@ -2,32 +2,32 @@ FactoryBot.define do
     factory :user do
         sequence(:username) { |n| "HanSolo#{n}" }
         sequence(:email) { |n| "tester#{n}@example.com" }
-        password 'random_password'
-        role 'guest'
-        confirmed_at Date.today
+        password { 'random_password' }
+        role { 'guest' }
+        confirmed_at { Date.today }
 
         trait :is_initiate do
-            role 'initiate'
+            role { 'initiate' }
         end
 
         trait :is_member do
-            role 'member'
+            role { 'member' }
         end
 
         trait :is_officer do
-            role 'officer'
+            role { 'officer' }
         end
 
         trait :is_admin do
-            role 'admin'
+            role { 'admin' }
         end
 
         trait :without_role do
-            role nil
+            role { nil }
         end
 
         trait :unconfirmed do
-            confirmed_at nil
+            confirmed_at { nil }
         end
     end
 end

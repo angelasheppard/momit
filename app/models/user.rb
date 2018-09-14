@@ -31,4 +31,41 @@ class User < ApplicationRecord
         return self.role == 'admin'
     end
 
+    def thredded_can_read_messageboards
+        return get_permitted_messageboards
+    end
+
+    def thredded_can_write_messageboards
+        writable_boards = get_permitted_messageboards
+        if self.guest?
+            return writable_boards.where("thredded_messageboards.name = ?", 'Recruitment')
+        else
+            return writable_boards
+        end
+    end
+
+    def thredded_can_moderate_messageboards
+        return self.admin? ? Thredded::Messageboard.all : []
+    end
+
+    private
+
+        def get_permitted_messageboards
+            if self.officer?
+                return Thredded::Messageboard.all
+            else
+                member_restricted_boards = ['Officers']
+                initiate_restricted_boards = member_restricted_boards.dup.push('Recruit Voting')
+
+                public_group = Thredded::MessageboardGroup.find_by(name: 'Public')
+                public_boards = Thredded::Messageboard.by_messageboard_group(public_group)
+                momit_group = Thredded::MessageboardGroup.find_by(name: 'MOMiT')
+                momit_boards = Thredded::Messageboard.by_messageboard_group(momit_group)
+                all_boards = momit_boards.or(public_boards)
+
+                return all_boards.where("thredded_messageboards.name not in (?)", member_restricted_boards) if self.member?
+                return all_boards.where("thredded_messageboards.name not in (?)", initiate_restricted_boards) if self.initiate?
+                return public_boards if self.guest?
+            end
+        end
 end
