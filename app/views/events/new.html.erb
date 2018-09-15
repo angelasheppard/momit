@@ -1,0 +1,42 @@
+<% provide(:title, 'New Event') %>
+<h1>Create New Event</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@event) do |f| %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+      <%= f.label :start_time %>
+      <%= f.datetime_field :start_time, class: 'form-control'  %>
+
+      <%= f.label :end_time %>
+      <%= f.datetime_field :end_time, class: 'form-control' %>
+
+      <%= f.label :event_type %>
+      <%= f.text_field :event_type, class: 'form-control'  %>
+
+      <%= f.label :is_template, "Save as Template?" %>
+      <%= f.check_box :is_template, class: 'form-control'  %>
+
+      <%= f.label :is_locked, "Event Locked" %>
+      <%= f.check_box :is_locked, class: 'form-control'  %>
+      
+      <%= f.label :max_tank %>
+      <%= f.number_field :max_tank, class: 'form-control'  %>
+      
+      <%= f.label :max_dps %>
+      <%= f.number_field :max_dps, class: 'form-control'  %>
+      
+      <%= f.label :max_healer %>
+      <%= f.number_field :max_healer, class: 'form-control'  %>
+
+      <%= f.submit "Create event", class: "btn btn-primary" %>
+      
+    <% end %>
+  </div>
+</div>

@@ -17,3 +17,20 @@ end
 Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed|
   load seed
 end
+
+
+# add some data for testing our our calendar of events, only for dev 
+
+if Rails.env == "development"
+  example_admin = User.create({ email: "admin@example.com", username: "exampleadmin", password: "password", role: "admin"})
+  example_admin.confirm
+  example_member = User.create({ email: "member@example.com", username: "examplemember", password: "password", role: "member"})
+  example_member.confirm
+  example_guest = User.create({ email: "guest@example.com", username: "exampleguest", password: "password", role: "guest"})
+  example_guest.confirm
+
+  example_fut_event = Event.create({name: "future event", description: "event in the future", start_time: 4.days.from_now, end_time: 4.days.from_now + 1.hour, event_type: "sample", is_template: 0, is_locked: 0, max_tank: 2, max_dps: 5, max_healer: 3, user_creator: example_admin})
+  example_exp_event = Event.create({name: "expired event", description: "event in the past", start_time: 4.days.ago, end_time: 4.days.ago + 1.hour, event_type: "sample", is_template: 0, is_locked: 0, max_tank: 2, max_dps: 5, max_healer: 3, user_creator: example_admin})
+  example_lock_event = Event.create({name: "locked event", description: "current event but locked", start_time: Time.now, end_time: Time.now + 1.hour, event_type: "sample", is_template: 0, is_locked: 1, max_tank: 2, max_dps: 5, max_healer: 3, user_creator: example_admin})
+
+end 

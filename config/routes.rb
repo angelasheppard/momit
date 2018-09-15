@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   match '/loot-philosophy', to: 'static_pages#loot_philosophy', via: [:get]
   match '/loot-system', to: 'static_pages#loot_system', via: [:get]
 
-# just to test, remove later
-  match '/calendar', to: 'static_pages#calendar', via: [:get]
+  resources :events
 
 	match '/users', to: 'users#index', via: 'get'
 

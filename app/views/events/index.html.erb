@@ -1,0 +1,26 @@
+<%= month_calendar(events: @events, attribute: :start_time, end_attribute: :end_time)  do |date, events| %>
+  <%= date.day %>
+  <% @events.each do |event| %>
+    <div>
+      <% if date.to_date == event.start_time.to_date %>
+        <% if event.is_locked %>
+	  <div class='d-inline-flex flex-row px-3'>
+            <div class='text-danger px-1'><%= event.name %></div>
+            <div class='text-danger px-1'><%= event.start_time.strftime('%R') %></div>
+	  </div>
+        <% elsif event.start_time.to_date < Time.now.to_date %>
+	  <div class='d-inline-flex flex-row px-3'>
+            <div class='text-secondary px-1'><%= event.name %></div>
+            <div class='text-secondary px-1'><%= event.start_time.strftime('%R') %></div>
+	  </div>
+        <% else %>
+	  <div class='d-inline-flex flex-row px-3'>
+            <div class='text-primary px-1'><%= event.name %></div>
+            <div class='text-primary px-1'><%= event.start_time.strftime('%R') %></div>
+	  </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
