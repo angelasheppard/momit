@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     @event.user_creator = current_user
     if @event.save
       #success
+      redirect_to events_path
     else
       #failure
       render 'new'
@@ -20,7 +21,9 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.all.order(:start_time)
+  
+  
   end
 
   private

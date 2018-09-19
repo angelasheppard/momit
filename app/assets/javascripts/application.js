@@ -15,12 +15,13 @@
 //= require rails-ujs
 //= require bootstrap
 //= require turbolinks
+//= require moment
+//= require moment-timezone-with-data
 //= require_tree .
 //= require thredded
 
 //prevent flagging $ as undefined variable in cloud9
 /* global $ */
-
 // Header scroll animation
 /*$(document).scroll(function() {
     var y = $(this).scrollTop();

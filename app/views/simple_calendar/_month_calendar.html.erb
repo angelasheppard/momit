@@ -4,19 +4,19 @@
     <span class="calendar-title p-md-5 h4"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
   </div>
-
+  <div class="table-responsive-md">
   <table class="table table-striped">
     <thead>
-      <tr>
+      <tr class="row">
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th class="col text-center"><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
 
     <tbody>
       <% date_range.each_slice(7) do |week| %>
-        <tr>
+        <tr class="row">
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
@@ -30,4 +30,5 @@
       <% end %>
     </tbody>
   </table>
+  </div>
 </div>

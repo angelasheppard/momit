@@ -4,21 +4,18 @@
     <div>
       <% if date.to_date == event.start_time.to_date %>
         <% if event.is_locked %>
-	  <div class='d-inline-flex flex-row px-3'>
-            <div class='text-danger px-1'><%= event.name %></div>
-            <div class='text-danger px-1'><%= event.start_time.strftime('%R') %></div>
-	  </div>
-        <% elsif event.start_time.to_date < Time.now.to_date %>
-	  <div class='d-inline-flex flex-row px-3'>
-            <div class='text-secondary px-1'><%= event.name %></div>
-            <div class='text-secondary px-1'><%= event.start_time.strftime('%R') %></div>
-	  </div>
+          <% @event_class='locked-event' %>
+        <% elsif event.start_time.to_date < Time.zone.now.to_date %>
+          <% @event_class='expired-event' %>
         <% else %>
-	  <div class='d-inline-flex flex-row px-3'>
-            <div class='text-primary px-1'><%= event.name %></div>
-            <div class='text-primary px-1'><%= event.start_time.strftime('%R') %></div>
-	  </div>
+          <% @event_class='future-event' %>
         <% end %>
+        
+	      <%= content_tag(:div, :class => [@event_class]) do %>
+          <div><%= event.name %></div>
+          <div><%= event.start_time.strftime('%R') %></div>
+	      <% end %>
+        
       <% end %>
     </div>
   <% end %>
