@@ -1,7 +1,7 @@
 <% # partial to display properties for a single character, passed in character and character_icon_loc %>
 
   <td class="col text-center">
-      <%= character.name %>
+      <%= link_to character.name, character_path(character) %>
   </td>
   <td class="col text-center">
       <%= image_tag(character_icon_loc) %>
