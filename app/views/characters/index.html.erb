@@ -9,7 +9,7 @@
       </thead>
       <tbody>
           <% @characters.each do |c| %>
-            <tr class="row bg-dark">
+            <tr class="row">
 	          <%= render "char_display", character: c["character"], character_icon_loc: c["properties"][:display_icon] %>
 	          <td class="col text-center">
 	              <%= link_to c["character"].user.username, characters_byuser_path(c["character"].user.username) %>
