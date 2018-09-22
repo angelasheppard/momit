@@ -1,0 +1,27 @@
+<% provide(:title, "Characters") %>
+  <div class="table-responsive-md">
+    <table class="table">
+      <thead>
+        <tr class="row">
+          
+            <% Character.first.slice(:name, :charclass, :is_tank, :is_dps, :is_healer, :main_role).keys.each do |k| %>
+              <%= content_tag(:td, k, :class => "col") %>
+            <% end %>
+          
+          <td>classicon</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @chars_plus_info.each do |cpi| %>
+          <tr class="row">
+            <% # note only one key here %>  
+            <% cpi.keys.first.slice(:name, :charclass, :is_tank, :is_dps, :is_healer, :main_role).values.each do |v| %>
+              <%= content_tag(:td, v, :class => "col") %>
+            <% end %>
+            <td><%= image_tag(cpi[cpi.keys.first][:display_icon])%></td>
+          </tr>
+        <% end %>  
+      </tbody>
+    </table>
+  </div>
+

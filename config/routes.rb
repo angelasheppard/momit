@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   match '/loot-system', to: 'static_pages#loot_system', via: [:get]
 
   resources :events
-
+  resources :characters
+  match '/characters/showonlymine', to: 'characters#showonlymine', via: [:get]
+  
 	match '/users', to: 'users#index', via: 'get'
 
   devise_for :users,
