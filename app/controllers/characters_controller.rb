@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    @character = Character.new(Character_params)
+    @character = Character.new(character_params)
     @character.user = current_user
     if @character.save
       #success
@@ -25,42 +25,52 @@ class CharactersController < ApplicationController
   end
 
   def index
-    # get all characters and supplement the info
-    @characters = Character.all.order(:main_role)
-    @chars_plus_info = []
-    @characters.each do |c|
-      new_character_element = { c => char_props(c.charclass) }
-      @chars_plus_info << new_character_element
+    # find all the users and then find all the characters for each user
+    @users = User.all
+    @characters = []
+    @users.each do |u|
+      @characters += user_chars_plus(u)
     end
-
+    
   end
   
-  def showonlymine
-      @characters = user_chars_plus(current_user)
+  def byuser
+      @user = User.find_by(username: username_param)
+      @characters = user_chars_plus(@user)
           
   end
 
+  ## TODO: byrole, byclass
+  def byrole
+  end
+  
+  def byclass
+  end
 
 
 # return supplementary info from model for a given charclass
-  def char_props(charclass)
-    char_info = Character::CHAR_CLASSES[charclass.downcase.to_sym]
-    return char_info
-  end
     
   private
 
+    def char_props(charclass)
+      char_info = Character::CHAR_CLASSES[charclass.downcase.to_sym]
+      return char_info
+    end
+  
     def character_params
       params.require(:character).permit(:name, :charclass, :is_tank, :is_dps, :is_heal, :main_role)
     end
     
+    def username_param
+      params.require(:username)
+    end
     # return the characters associated with a single User, supplemented with stored model info
     # return format: array with Character as key, hash of properties as value
     def user_chars_plus(cuser = current_user)
         char_objs = user_chars(cuser)
-        chars_plus_info = {}
+        chars_plus_info = []
         char_objs.each do |c|
-            new_character_element = { c =>  char_props(c.charclass) }
+            new_character_element = { "character" => c, "properties" =>  char_props(c.charclass) }
             chars_plus_info << new_character_element
         end
         return chars_plus_info
@@ -68,7 +78,7 @@ class CharactersController < ApplicationController
     
     # return the Characters associated with a single User
     def user_chars(cuser = current_user)
-        return Character.where(:user == cuser).order(:main_role )
+        return Character.where(user: cuser).order(:name)
     end
     
 

@@ -39,7 +39,7 @@ if Rails.env == "development"
   # example chars covering some role permutations
   example_tank_char = Character.create({name: 'Tank', charclass: 'Warrior', is_tank: 1, is_dps: 0, is_healer: 0, main_role: 'Tank', user: example_admin})
   example_dps_char = Character.create({name: 'DPS', charclass: 'Mage', is_tank: 0, is_dps: 1, is_healer: 0, main_role: 'Damage', user: example_admin})
-  example_healer_char = Character.create({name: 'Healer', charclass: 'Priest', is_tank: 0, is_dps: 0, is_healer: 1, main_role: 'Healer', user: example_admin})
+  example_healer_char = Character.create({name: 'Healer', charclass: 'Priest', is_tank: 0, is_dps: 0, is_healer: 1, main_role: 'Healer', user: example_member})
   example_hybrid_char = Character.create({name: 'Hybrid', charclass: 'Druid', is_tank: 1, is_dps: 1, is_healer: 1, main_role: 'Tank', user: example_admin})
 
 end 

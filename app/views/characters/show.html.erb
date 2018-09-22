@@ -3,19 +3,13 @@
     <table class="table">
       <thead>
         <tr class="row">
-          <% @character.slice(:name, :charclass, :is_tank, :is_dps, :is_healer, :main_role).keys.each do |k| %>
-	          <%= content_tag(:td, k, :class => "col") %>
-          <% end %>
-          <td>classicon</td>
+          <%= render "char_header" %>
         </tr>
       </thead>
       <tbody>
-	      <tr class="row">
-	            <% @character.slice(:name, :charclass, :is_tank, :is_dps, :is_healer, :main_role).values.each do |v| %>
-	          <%= content_tag(:td, v, :class => "col") %>
-          <% end %>
-          <td><%= image_tag(@character_icon_loc) %></td>
-        </tr>
+        <tr class="row">
+	        <%= render "char_display", character: @character, character_icon_loc: @character_icon_loc %>
+	      </tr>
       </tbody>
     </table>
   </div>

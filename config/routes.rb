@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :events
   resources :characters
-  match '/characters/showonlymine', to: 'characters#showonlymine', via: [:get]
+  match '/characters/byuser/:username', to: 'characters#byuser', via: [:get]
   
 	match '/users', to: 'users#index', via: 'get'
 

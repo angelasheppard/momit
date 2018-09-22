@@ -1,20 +1,20 @@
-<% provide(:title, "Characters") %>
+<% provide(:title, @user.username) %>
   <div class="table-responsive-md">
     <table class="table">
       <thead>
         <tr class="row">
-            <%= render "char_header" %>
-            <td class="col text-center">Username</td>
+          <%= render "char_header" %>
         </tr>
       </thead>
       <tbody>
           <% @characters.each do |c| %>
             <tr class="row">
 	          <%= render "char_display", character: c["character"], character_icon_loc: c["properties"][:display_icon] %>
-	          <td class="col text-center"><%= c["character"].user.username %></td>
 	        </tr>
 	      <% end %>
       </tbody>
     </table>
   </div>
+  
+
 

@@ -1,7 +1,7 @@
 class Character < ApplicationRecord
 
   CHAR_ROLES = {  dps: { display_name: "Damage", display_icon: '/assets/icons/class/class_role_damage.png' },
-                  heal: { display_name: "Healer", display_icon: '/assets/icons/class/class_role_healer.png' },
+                  healer: { display_name: "Healer", display_icon: '/assets/icons/class/class_role_healer.png' },
                   tank: { display_name: "Tank", display_icon: '/assets/icons/class/class_role_tank.png' }
   }
   CHAR_CLASSES = {  death_knight: { display_name: "Death Knight", display_icon: "/assets/icons/class/class_deathknight.jpg" }, 

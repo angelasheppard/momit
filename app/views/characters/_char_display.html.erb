@@ -1,0 +1,28 @@
+<% # partial to display properties for a single character, passed in character and character_icon_loc %>
+
+  <td class="col text-center">
+      <%= character.name %>
+  </td>
+  <td class="col text-center">
+      <%= image_tag(character_icon_loc) %>
+      <%= character.charclass %>
+  </td>
+  <td class="col text-center">
+      <% if character.is_tank? %>
+          <%= image_tag(Character::CHAR_ROLES[:tank][:display_icon]) %>
+      <% end %>
+  </td>
+  <td class="col text-center">
+      <% if character.is_dps? %>
+          <%= image_tag(Character::CHAR_ROLES[:dps][:display_icon]) %>
+      <% end %>
+  </td>
+  <td class="col text-center">
+      <% if character.is_healer? %>
+          <%= image_tag(Character::CHAR_ROLES[:healer][:display_icon]) %>
+      <% end %>
+  </td>
+  <td class="col text-center">
+      <%= character.main_role %>
+  </td>
+    
