@@ -3,7 +3,7 @@
   <td class="col text-center">
       <%= link_to character.name, character_path(character) %>
   </td>
-  <td class="col text-center">
+  <td class="col text-center character_name" id="<%= character.charclass.downcase %>" >
       <%= image_tag(character_icon_loc) %>
       <%= character.charclass %>
   </td>

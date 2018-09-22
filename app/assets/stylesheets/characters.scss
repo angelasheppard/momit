@@ -1,3 +1,55 @@
 // Place all the styles related to the characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.character_name
+{
+    &#death_knight 
+    {
+        color: #c41f3b;
+    }
+    &#demon_hunter
+    {
+        color: #a330c9;
+    }
+    &#druid
+    {
+        color: #ff7d0a;
+    }
+    &#hunter
+    {
+        color: #abd473;
+    }
+    &#mage
+    {
+        color: #40c7eb;
+    }
+    &#monk
+    {
+        color: #00FF96;
+    }
+    &#paladin
+    {
+        color: #f58cba;
+    }
+    &#priest
+    {
+        color: #ffffff;
+    }
+    &#rogue
+    {
+        color: #fff569;
+    }
+    &#shaman
+    {
+        color: #0070de;
+    }
+    &#warlock
+    {
+        color: #8787ed;
+    }
+    &#warrior
+    {
+        color: #c79c6e;
+    }
+}
