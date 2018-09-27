@@ -28,6 +28,7 @@
     padding: 0;
   }
 }
+@import "thredded_customizations";
 
 //variables - scope: application.scss only
 $navbar_height: 92px;
@@ -41,12 +42,23 @@ body {
 .container {
     margin-top: $navbar_height;
     margin-bottom: 40px;
+    @media (max-width: 320px) {
+        margin-top: $navbar_height_mobile;
+    }
+    @media (min-width: 768px) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    @media (min-width: 992px) {
+        padding-left: 65px;
+        padding-right: 65px;
+    }
 }
-@media (max-width: 320px) {
+/*@media (max-width: 320px) {
     .container {
         margin-top: $navbar_height_mobile;
     }
-}
+}*/
 .navbar {
     padding: 1rem 2rem;
     .btn-group a {
