@@ -1,0 +1,40 @@
+.thredded--topic-header {
+    h1 { font-size: 2rem; }
+}
+
+.thredded--post:before {
+    background-color: $momit_blue;
+    content: '';
+    height: 1px;
+    display: block;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    opacity: 0.15;
+    width: 100%;
+}
+.thredded--post {
+    margin-bottom: 2rem;
+}
+.thredded--post--avatar {
+    @media (min-width: 47rem) {
+        top: 1.5rem;
+    }
+    @media (min-width: 992px) {
+        top: 1.25rem;
+    }
+}
+.thredded--post--content {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.85rem; }
+}
+
+.thredded--pagination-top > .thredded--pagination {
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+.thredded--pagination {
+    display: block;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
