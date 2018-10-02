@@ -4,25 +4,25 @@
       <%= link_to character.name, character_path(character) %>
   </td>
   <td class="col text-center character_name" id="<%= character.charclass.downcase %>" >
-      <%= image_tag(character_icon_loc) %>
-      <%= character.charclass %>
+      <%= image_tag(CLASS_ICON_PATH + "class_#{character.charclass.downcase}.jpg", size: "25") %>
+      <%= character.charclass.titleize %>
   </td>
   <td class="col text-center">
       <% if character.is_tank? %>
-          <%= image_tag(Character::CHAR_ROLES[:tank][:display_icon]) %>
+          <%= image_tag(CLASS_ROLE_ICON_PATH + "class_role_tank.png") %>
       <% end %>
   </td>
   <td class="col text-center">
       <% if character.is_dps? %>
-          <%= image_tag(Character::CHAR_ROLES[:dps][:display_icon]) %>
+          <%= image_tag(CLASS_ROLE_ICON_PATH + "class_role_damage.png") %>
       <% end %>
   </td>
   <td class="col text-center">
       <% if character.is_healer? %>
-          <%= image_tag(Character::CHAR_ROLES[:healer][:display_icon]) %>
+          <%= image_tag(CLASS_ROLE_ICON_PATH + "class_role_healer.png") %>
       <% end %>
   </td>
   <td class="col text-center">
-      <%= character.main_role %>
+      <%= character.main_role.titleize %>
   </td>
     

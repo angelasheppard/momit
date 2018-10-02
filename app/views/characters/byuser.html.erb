@@ -9,7 +9,7 @@
       <tbody>
           <% @characters.each do |c| %>
             <tr class="row">
-	          <%= render "char_display", character: c["character"], character_icon_loc: c["properties"][:display_icon] %>
+	          <%= render "char_display", character: c %>
 	        </tr>
 	      <% end %>
       </tbody>

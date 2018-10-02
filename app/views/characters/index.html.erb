@@ -1,6 +1,6 @@
 <% provide(:title, "Characters") %>
   <div class="table-responsive-md">
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr class="row">
             <%= render "char_header" %>
@@ -10,13 +10,15 @@
       <tbody>
           <% @characters.each do |c| %>
             <tr class="row">
-	          <%= render "char_display", character: c["character"], character_icon_loc: c["properties"][:display_icon] %>
+	          <%= render "char_display", character: c %>
 	          <td class="col text-center">
-	              <%= link_to c["character"].user.username, characters_byuser_path(c["character"].user.username) %>
+	              <%= link_to c.user.username, characters_byuser_path(c.user.username) %>
 	          </td>
 	        </tr>
 	      <% end %>
       </tbody>
     </table>
   </div>
+  
+  <%= link_to "New Character", new_character_path %>
 

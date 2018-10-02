@@ -37,9 +37,9 @@ if Rails.env == "development"
   example_lock_event = Event.create({name: "locked event", description: "current event but locked", start_time: Time.now, end_time: Time.now + 1.hour, event_type: "sample", is_template: 0, is_locked: 1, max_tank: 2, max_dps: 5, max_healer: 3, user_creator: example_admin})
 
   # example chars covering some role permutations
-  example_tank_char = Character.create({name: 'IAMATank', charclass: 'Warrior', is_tank: 1, is_dps: 0, is_healer: 0, main_role: 'Tank', user: example_admin})
-  example_dps_char = Character.create({name: 'IAMADps', charclass: 'Mage', is_tank: 0, is_dps: 1, is_healer: 0, main_role: 'Damage', user: example_admin})
-  example_healer_char = Character.create({name: 'IAMAHealer', charclass: 'Priest', is_tank: 0, is_dps: 0, is_healer: 1, main_role: 'Healer', user: example_member})
-  example_hybrid_char = Character.create({name: 'IAMAHybrid', charclass: 'Druid', is_tank: 1, is_dps: 1, is_healer: 1, main_role: 'Tank', user: example_admin})
+  example_tank_char = Character.create({name: 'IAMATank', charclass: 'warrior', is_tank: 1, is_dps: 0, is_healer: 0, main_role: 'tank', user: example_admin})
+  example_dps_char = Character.create({name: 'IAMADps', charclass: 'mage', is_tank: 0, is_dps: 1, is_healer: 0, main_role: 'damage', user: example_admin})
+  example_healer_char = Character.create({name: 'IAMAHealer', charclass: 'priest', is_tank: 0, is_dps: 0, is_healer: 1, main_role: 'healer', user: example_member})
+  example_hybrid_char = Character.create({name: 'IAMAHybrid', charclass: 'druid', is_tank: 1, is_dps: 1, is_healer: 1, main_role: 'tank', user: example_admin})
 
 end 

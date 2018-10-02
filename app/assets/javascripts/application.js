@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require moment
-//= require moment-timezone-with-data
+//= require tempusdominus-bootstrap-4.js
 //= require_tree .
 //= require thredded
 

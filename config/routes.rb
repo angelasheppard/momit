@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :events
   resources :characters
   match '/characters/byuser/:username', to: 'characters#byuser', via: [:get], as: :characters_byuser
+  match '/characters/byrole/:role', to: 'characters#byrole', via: [:get], as: :characters_byrole
   
 	match '/users', to: 'users#index', via: 'get'
 

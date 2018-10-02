@@ -46,7 +46,15 @@ gem 'slack-notifier'
 
 gem 'thredded', '~> 0.15.4'
 
+# for event calendar, way to display calendar
+# and nicer date selection
+# momentjs is a dep of datetime-picker but needs to be explicit to work
 gem 'simple_calendar', '~> 2.0'
+gem 'momentjs-rails'
+gem 'bootstrap4-datetime-picker-rails'
+
+# for fancy glyphs like the calendar icon
+gem 'font-awesome-rails'
 
 gem 'bootsnap', require: false
 

@@ -1,0 +1,42 @@
+<% provide(:title, 'New Character') %>
+<h1>Create New Character</h1>
+
+<div class="container">
+  <div class="row">
+    <%= form_for(@character) do |f| %>
+      
+      <div class='form-group'>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      
+      <div class='form-group'>
+      <%= f.label :charclass, "Class" %>
+      <%= f.select :charclass, Character::CHAR_CLASSES.map{ |v| [v.titleize, v] }, class: 'form-control' %>
+      </div>
+      
+      <div class='form-group form-check'>
+      <%= f.label :is_tank %>
+      <%= f.check_box :is_tank, class: 'form-control' %>
+      </div>
+      
+      <div class='form-group form-check'>
+      <%= f.label :is_dps %>
+      <%= f.check_box :is_dps, class: 'form-control' %>
+      </div>
+      
+      <div class='form-group form-check'>
+      <%= f.label :is_healer %>
+      <%= f.check_box :is_healer, class: 'form-control'  %>
+      </div>
+      
+      <div class='form-group'>
+      <%= f.label :main_role %>
+      <%= f.select :main_role, Character::CHAR_ROLES.map{ |v| [v.titleize, v] },  class: 'form-control'  %>
+      </div>
+
+      <%= f.submit "Create character", class: "btn btn-primary" %>
+      
+    <% end %>
+  </div>
+</div>
