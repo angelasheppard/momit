@@ -1,0 +1,84 @@
+<% provide(:title, 'New Event') %>
+<h1>Create New Event</h1>
+
+<div class="container">
+  <div class="col-lg-6 col-lg-offset-3">
+    <%= form_for(@event) do |f| %>
+      
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+      
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+
+      <div class="form-group">
+        <div class="input-group date" id="datetimepicker1" data-target-input="nearest"> 
+          <%= f.label :start_time %>
+          <%= f.text_field :start_time, data: {target: '#datetimepicker1'}, class: ['form-control', 'datetimepicker-input'] %>
+          <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+            <div class="input-group-text"><span class="fa fa-calendar"</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <div class="input-group date" id="datetimepicker2" data-target-input="nearest"> 
+          <%= f.label :end_time %>
+          <%= f.text_field :end_time, data: {target: '#datetimepicker2'}, class: ['form-control', 'datetimepicker-input'] %>
+          <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+            <div class="input-group-text"><span class="fa fa-calendar"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <%= f.label :event_type %>
+      <%= f.text_field :event_type, class: 'form-control'  %>
+
+      <%= f.label :is_template, "Save as Template?" %>
+      <%= f.check_box :is_template, class: 'form-control'  %>
+
+      <%= f.label :is_locked, "Event Locked" %>
+      <%= f.check_box :is_locked, class: 'form-control'  %>
+      
+      <%= f.label :max_tank %>
+      <%= f.number_field :max_tank, class: 'form-control'  %>
+      
+      <%= f.label :max_dps %>
+      <%= f.number_field :max_dps, class: 'form-control'  %>
+      
+      <%= f.label :max_healer %>
+      <%= f.number_field :max_healer, class: 'form-control'  %>
+
+      <%= f.submit "Create event", class: "btn btn-primary" %>
+      
+    <% end %>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+$(function() {
+  $('#datetimepicker1').datetimepicker();
+});
+$(function() {
+  $('#datetimepicker2').datetimepicker();
+});
+</script>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

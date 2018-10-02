@@ -12,11 +12,15 @@
  *
  */
 // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "font-awesome";
+@import "tempusdominus-bootstrap-4.css";
 @import "bootstrap";
 @import "colors";
 @import "errors";
 @import "users";
 @import "static_pages";
+@import "simple_calendar";
+@import "characters";
 
 // thredded forum gem style //
 @import "thredded";

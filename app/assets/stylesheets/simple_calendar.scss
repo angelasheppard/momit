@@ -1,0 +1,46 @@
+.simple-calendar {
+  .day {
+    @extend .col;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .wday-0 {
+  }
+  .wday-1 {
+  }
+  .wday-2 {
+  }
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+	  @extend .text-primary;
+  }
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+  	@extend .text-secondary;
+  }
+
+  .next-month { }
+  .current-month {}
+
+  .has-events {
+    
+  }
+  .locked-event {
+    color: #e91e63;
+  }
+  .expired-event {
+    color: #757575;
+  }
+  .future-event {
+    
+  }
+  
+}

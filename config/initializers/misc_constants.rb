@@ -3,3 +3,6 @@ TIMESTAMP_FORMAT = "%m/%d/%Y %H:%M"
 LONG_TIMESTAMP_FORMAT = "%Y-%m-%d:%H:%M:%S"
 
 WARCRAFT_LOGS_PATH = "https://www.warcraftlogs.com/guild/id/111533"
+
+CLASS_ICON_PATH = "/assets/icons/standard/class/"
+CLASS_ROLE_ICON_PATH = "/assets/icons/standard/role/"

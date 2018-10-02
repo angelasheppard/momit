@@ -24,4 +24,5 @@ class StaticPagesController < ApplicationController
     def loot_system
         @title = 'Loot System'
     end
+
 end

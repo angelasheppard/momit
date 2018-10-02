@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   match '/loot-philosophy', to: 'static_pages#loot_philosophy', via: [:get]
   match '/loot-system', to: 'static_pages#loot_system', via: [:get]
 
+  resources :events
+  resources :characters
+  match '/characters/byuser/:username', to: 'characters#byuser', via: [:get], as: :characters_byuser
+  match '/characters/byrole/:role', to: 'characters#byrole', via: [:get], as: :characters_byrole
+  
 	match '/users', to: 'users#index', via: 'get'
 
   devise_for :users,
