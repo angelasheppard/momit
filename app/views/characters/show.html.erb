@@ -1,0 +1,18 @@
+<% provide(:title, @character.name) %>
+  <div class="table-responsive-md">
+    <table class="table">
+      <thead>
+        <tr class="row">
+          <%= render "char_header" %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row">
+	        <%= render "char_display", character: @character %>
+	      </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+

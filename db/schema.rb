@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180821173745) do
+ActiveRecord::Schema.define(version: 2018_09_15_161327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attendees", force: :cascade do |t|
+    t.boolean "is_slotted"
+    t.boolean "is_available"
+    t.boolean "is_not_available"
+    t.boolean "as_tank"
+    t.boolean "as_dps"
+    t.boolean "as_healer"
+    t.boolean "did_attend"
+    t.text "signup_note"
+    t.text "grouplead_note"
+    t.bigint "event_id"
+    t.bigint "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_attendees_on_character_id"
+    t.index ["event_id"], name: "index_attendees_on_event_id"
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.string "charclass"
+    t.boolean "is_tank"
+    t.boolean "is_dps"
+    t.boolean "is_healer"
+    t.string "main_role"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "event_type"
+    t.boolean "is_template"
+    t.boolean "is_locked"
+    t.integer "max_tank"
+    t.integer "max_dps"
+    t.integer "max_healer"
+    t.string "log_url"
+    t.bigint "user_creator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_creator_id"], name: "index_events_on_user_creator_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -275,6 +324,10 @@ ActiveRecord::Schema.define(version: 20180821173745) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "attendees", "characters"
+  add_foreign_key "attendees", "events"
+  add_foreign_key "characters", "users"
+  add_foreign_key "events", "users", column: "user_creator_id"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
   add_foreign_key "thredded_messageboard_users", "thredded_user_details", on_delete: :cascade
   add_foreign_key "thredded_user_post_notifications", "thredded_posts", column: "post_id", on_delete: :cascade

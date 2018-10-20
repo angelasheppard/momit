@@ -1,0 +1,18 @@
+<% provide(:title, params[:role].titleize) %>
+  <div class="table-responsive-md">
+    <table class="table">
+      <thead>
+        <tr class="row">
+          <%= render "char_header" %>
+        </tr>
+      </thead>
+      <tbody>
+          <% @characters.each do |c| %>
+            <tr class="row">
+	          <%= render "char_display", character: c %>
+	        </tr>
+	      <% end %>
+      </tbody>
+    </table>
+  </div>
+  

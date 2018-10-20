@@ -1,0 +1,24 @@
+<%= month_calendar(events: @events, attribute: :start_time, end_attribute: :end_time)  do |date, events| %>
+  <%= date.day %>
+  <% @events.each do |event| %>
+    <div>
+      <% if date.to_date == event.start_time.to_date %>
+        <% if event.is_locked %>
+          <% @event_class='locked-event' %>
+        <% elsif event.start_time.to_date < Time.zone.now.to_date %>
+          <% @event_class='expired-event' %>
+        <% else %>
+          <% @event_class='future-event' %>
+        <% end %>
+        
+	      <%= content_tag(:div, :class => [@event_class]) do %>
+          <div><%= event.name %></div>
+          <div><%= event.start_time.strftime('%R') %></div>
+	      <% end %>
+        
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+<%= link_to "New Event", new_event_path %>
+
