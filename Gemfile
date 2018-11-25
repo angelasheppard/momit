@@ -44,7 +44,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'exception_notification'
 gem 'slack-notifier'
 
-gem 'thredded', '~> 0.15.4'
+gem 'thredded', '~> 0.16.1'
 
 # for event calendar, way to display calendar
 # and nicer date selection

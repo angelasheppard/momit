@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_161327) do
+ActiveRecord::Schema.define(version: 2018_09_30_063614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -280,6 +280,8 @@ ActiveRecord::Schema.define(version: 2018_09_15_161327) do
     t.bigint "user_id", null: false
     t.bigint "postable_id", null: false
     t.datetime "read_at", null: false
+    t.integer "unread_posts_count", default: 0, null: false
+    t.integer "read_posts_count", default: 0, null: false
     t.index ["user_id", "postable_id"], name: "thredded_user_private_topic_read_states_user_postable", unique: true
   end
 
@@ -295,6 +297,11 @@ ActiveRecord::Schema.define(version: 2018_09_15_161327) do
     t.bigint "user_id", null: false
     t.bigint "postable_id", null: false
     t.datetime "read_at", null: false
+    t.integer "unread_posts_count", default: 0, null: false
+    t.integer "read_posts_count", default: 0, null: false
+    t.bigint "messageboard_id", null: false
+    t.index ["messageboard_id"], name: "index_thredded_user_topic_read_states_on_messageboard_id"
+    t.index ["user_id", "messageboard_id"], name: "thredded_user_topic_read_states_user_messageboard"
     t.index ["user_id", "postable_id"], name: "thredded_user_topic_read_states_user_postable", unique: true
   end
 
