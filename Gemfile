@@ -45,6 +45,7 @@ gem 'exception_notification'
 gem 'slack-notifier'
 
 gem 'thredded', '~> 0.16.1'
+gem 'twemoji'
 
 # for event calendar, way to display calendar
 # and nicer date selection

@@ -178,3 +178,12 @@ h3, h4, h5, h6 {
         line-height: 1rem;
     }
 }
+
+/* emoji css */
+img.emoji {
+  width: 1.429em;
+  height: 1.429em;
+  margin: 0 .05em 0 .1em;
+  vertical-align: -0.35em;
+  -webkit-user-drag: none;
+}

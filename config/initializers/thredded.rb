@@ -1,3 +1,4 @@
+require 'html_pipeline_twemoji'
 # frozen_string_literal: true
 
 # Thredded configuration
@@ -109,10 +110,8 @@ Thredded.email_from = 'MOMiT Forum <forum@momitguild.org>'
 # ==> Post Content Formatting
 # Customize the way Thredded handles post formatting.
 
-# ===> Emoji using the 'gemoji' gem
-# 1. Install `gemoji` following instruction at https://github.com/github/gemoji.
-# 2. Uncomment the following line:
-# Thredded::ContentFormatter.after_markup_filters.insert(1, HTML::Pipeline::EmojiFilter)
+# ===> Emoji using the 'twemoji' gem
+Thredded::ContentFormatter.after_markup_filters.insert(1, HTMLPipelineTwemoji)
 
 # Change the HTML sanitization settings used by Thredded.
 # See the Sanitize docs for more information on the underlying library: https://github.com/rgrove/sanitize/#readme
