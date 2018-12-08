@@ -86,6 +86,7 @@ group :development do
   gem 'guard-rspec', require: false
   gem 'better_errors'
   gem 'binding_of_caller' #extra features for better_errors display
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
