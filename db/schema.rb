@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_30_063614) do
+ActiveRecord::Schema.define(version: 2018_12_08_125414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2018_09_30_063614) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 100, null: false
     t.text "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
     t.string "event_type"
     t.boolean "is_template"
     t.boolean "is_locked"
@@ -58,10 +58,11 @@ ActiveRecord::Schema.define(version: 2018_09_30_063614) do
     t.integer "max_dps"
     t.integer "max_healer"
     t.string "log_url"
-    t.bigint "user_creator_id"
+    t.integer "creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_creator_id"], name: "index_events_on_user_creator_id"
+    t.index ["creator_id"], name: "index_events_on_creator_id"
+    t.index ["name", "start_time"], name: "index_events_on_name_and_start_time", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -334,7 +335,7 @@ ActiveRecord::Schema.define(version: 2018_09_30_063614) do
   add_foreign_key "attendees", "characters"
   add_foreign_key "attendees", "events"
   add_foreign_key "characters", "users"
-  add_foreign_key "events", "users", column: "user_creator_id"
+  add_foreign_key "events", "users", column: "creator_id"
   add_foreign_key "thredded_messageboard_users", "thredded_messageboards", on_delete: :cascade
   add_foreign_key "thredded_messageboard_users", "thredded_user_details", on_delete: :cascade
   add_foreign_key "thredded_user_post_notifications", "thredded_posts", column: "post_id", on_delete: :cascade

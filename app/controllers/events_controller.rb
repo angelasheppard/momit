@@ -22,15 +22,17 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all.order(:start_time)
-  
-  
+
+
   end
 
-  private
-
-    def event_params
-      params.require(:event).permit(:name, :description, :start_time, :end_time, :event_type, :is_template, :is_locked, :max_tank, :max_dps, :max_healer, :log_url)
-    end
+    private
+        def event_params
+            params.require(:event)
+                .permit(:name, :description, :start_time, :end_time,
+                        :event_type, :is_template, :is_locked, :max_tank,
+                        :max_dps, :max_healer, :log_url, :creator_id)
+        end
 
 
 end
