@@ -118,3 +118,4 @@ class Log
 		return string
 	end
 end
+# -*- SkipSchemaAnnotations
