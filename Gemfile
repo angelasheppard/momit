@@ -5,13 +5,15 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rake', '>= 12.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
+gem 'actionview', '>= 5.2.4.2' #hotfix for vulnerability. Remove in later rails versions if includes newer actionview version
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.21.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -36,10 +38,10 @@ gem 'pundit'
 gem 'lograge'
 gem 'logstash-event'
 
-gem 'popper_js', '~> 1.12.3'
+gem 'popper_js', '>= 1.14.3'
 gem 'jquery-rails'
 #gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
-gem 'bootstrap', '~> 4.1.3'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'exception_notification'
 gem 'slack-notifier'
